@@ -10,6 +10,7 @@ namespace Examen3PM2_AC0036
 
             Routing.RegisterRoute(nameof(AgregarNotaPage), typeof(AgregarNotaPage));
             Routing.RegisterRoute(nameof(ListarNotasPage), typeof(ListarNotasPage));
+            Routing.RegisterRoute(nameof(InformacionPage), typeof(InformacionPage));
         }
     }
 }

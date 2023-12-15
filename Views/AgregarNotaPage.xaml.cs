@@ -70,9 +70,8 @@ public partial class AgregarNotaPage : ContentPage
             await DisplayAlert("Error", "Por favor, complete todos los campos.", "OK");
             return;
         }
-        int currentCounter = await ObtenerContadorAsync();
-        int newId = currentCounter + 1;
-        Notas nuevaNota = new Notas
+
+        var nota = new Notas
         {
             descripcion = txtDescripcion.Text,
             fecha = datePicker.Date,
@@ -80,12 +79,16 @@ public partial class AgregarNotaPage : ContentPage
             audio_record = urlAudio
         };
 
-        await client.Child("Notas").Child(newId.ToString()).PutAsync(nuevaNota);
-    }
+        var firebaseObject = await client.Child("Notas").PostAsync(nota);
+        string nuevoId = firebaseObject.Key;
 
-    private async Task<int> ObtenerContadorAsync()
-    {
-        var contador = await client.Child("Contador").OnceSingleAsync<int>();
-        return contador;
+        nota.id_nota = nuevoId;
+
+        await client.Child("Notas").Child(nuevoId).PutAsync(nota);
+        ListarNotasPage listapage = new ListarNotasPage();
+        listapage.CargarNotas();
+
+        await Shell.Current.GoToAsync("..");
+        await DisplayAlert("Éxito", "Los datos se han subido correctamente.", "OK");
     }
 }

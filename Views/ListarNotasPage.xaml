@@ -5,11 +5,11 @@
              Title="Lista de Notas">
 
     <ScrollView>
-        <Grid Padding="12"
+        <Grid Padding="5"
               RowSpacing="12"
               ColumnSpacing="6">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -19,14 +19,13 @@
             <CollectionView x:Name="NotasCollection"
                             ItemsSource="{Binding ListaNotas}"
                             SelectionMode="Single"
-                            SelectionChanged="NotasCollection_SelectionChanged"
-                            Grid.Row="1"
+                            Grid.Row="0"
                             Grid.ColumnSpan="2"
                             Margin="12">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid ColumnSpacing="12"
-                              Padding="6">
+                              Padding="5">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
@@ -38,16 +37,35 @@
                             <Image Grid.RowSpan="2"
                                    Source="{Binding photo_record}"
                                    Aspect="AspectFill"
-                                   HeightRequest="60"
-                                   WidthRequest="60" />
+                                   HeightRequest="90"
+                                   WidthRequest="90" />
                             <Label Grid.Column="1"
                                    Grid.Row="0"
                                    Text="{Binding descripcion}" 
-                                   FontSize="Caption"/>
+                                   FontSize="17"
+                                   FontFamily="Gilroy-SemiBold"
+                                   VerticalOptions="Center"
+                                   Margin="0,-2,0,0"/>
+                            <Label Grid.Column="1"
+                                   Grid.Row="1"
+                                   Text="{Binding fecha}" 
+                                   FontSize="17"
+                                   TextColor="Gray"
+                                   FontFamily="Gilroy-SemiBold"
+                                   VerticalOptions="Center"
+                                   Margin="0,-35,0,0"/>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+            <Grid Grid.Row="1" HorizontalOptions="CenterAndExpand" Margin="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Text="Eliminar Nota" x:Name="eliminarsitio" BackgroundColor="#8bc34a" CornerRadius="10" TextColor="Black" WidthRequest="170" Grid.Column="0" Margin="50,0,0,0" Clicked="btneliminarsitio_Clicked"/>
+                <Button Text="Actualizar Nota" x:Name="vermapa" BackgroundColor="#8bc34a" CornerRadius="10" TextColor="Black" WidthRequest="170" Grid.Column="1" Margin="150,0,0,0" />
+            </Grid>
         </Grid>
     </ScrollView>
 </ContentPage>
