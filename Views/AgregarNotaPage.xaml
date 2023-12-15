@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Examen3PM2_AC0036.Views.AgregarNotaPage"
+             Title="Agregar Nota">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20">
+
+            <Label Text="¡Toma una Foto de tu nota!"
+                   HorizontalOptions="Center" 
+                   TextColor="Black" 
+                   Margin="0,0,0,5"
+                   FontSize="16"
+                   FontFamily="Gilroy-SemiBold"/>
+
+            <Image x:Name="fotoCap" 
+                   Source="camera2.png" 
+                   WidthRequest="180" 
+                   HeightRequest="180" 
+                   HorizontalOptions="Center" 
+                   BackgroundColor="LightGray"/>
+
+            <Button x:Name="btnFoto" 
+                   Text="Tomar Foto" 
+                   Margin="50,10,50,7" 
+                   BackgroundColor="SaddleBrown" 
+                   CornerRadius="10" 
+                   TextColor="White"
+                   FontSize="15"
+                   FontFamily="Gilroy-SemiBold"
+                   Clicked="OnTomarFotoClicked"/>
+
+            <Label Text="Descripción:" 
+                   FontSize="17" 
+                   Margin="0,20,0,0" 
+                   TextColor="Black" 
+                   FontFamily="Gilroy-SemiBold"/>
+            <Frame Margin="0,5,10,0" 
+                   Padding="0">
+                <Entry Keyboard="Text" 
+                       x:Name="txtDescripcion"
+                       FontSize="14"
+                       BackgroundColor="#FFB0C4DE"/>
+            </Frame>
+
+            <Label Text="Fecha:" 
+                   FontSize="17" 
+                   Margin="0,20,0,0" 
+                   TextColor="Black" 
+                   FontFamily="Gilroy-SemiBold"/>
+            <Frame Margin="0,5,10,0" 
+                   Padding="0">
+                <DatePicker x:Name="datePicker"
+                            FontSize="14"
+                            BackgroundColor="#FFB0C4DE"/>
+            </Frame>
+
+            <Label Text="Grabar nota de Voz:" 
+                   FontSize="17" 
+                   Margin="0,20,10,5" 
+                   TextColor="Black" 
+                   FontFamily="Gilroy-SemiBold"/>
+            <Button x:Name="btnStartRecording"
+                    ImageSource="microfonoa.png"
+                    BorderWidth="5"
+                    Margin="100,15,100,7" 
+                    BackgroundColor="#8bc34a" 
+                    CornerRadius="10"
+                    BorderColor="#8bc34a"
+                    Clicked="OnStartRecordingClicked"/>
+
+            <Button Text="Guardar Nota"
+                    FontFamily="Gilroy-SemiBold"
+                    Margin="35,15,35,5"
+                    BackgroundColor="#002f6c"
+                    FontSize="15"
+                    Clicked="GuardarClicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

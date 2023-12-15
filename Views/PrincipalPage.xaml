@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Examen3PM2_AC0036.Views.PrincipalPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="10"
+            Padding="30"
+            VerticalOptions="Center">
+
+            <Image Source="notesmp.png"
+                   HeightRequest="170"
+                   HorizontalOptions="Center"/>
+
+            <Label Text="¡Bienvenido!"
+                   HorizontalTextAlignment="Center"
+                   Margin="-10,0,0,0"
+                   FontFamily="Gilroy-SemiBold"
+                   FontSize="20"/>
+
+            <Label Text="Selecciona la opción que deseas realizar"
+                   HorizontalTextAlignment="Center"
+                   Margin="-10,0,0,0"
+                   FontFamily="Gilroy-SemiBold"
+                   FontSize="16"/>
+
+            <Button Text="Agregar Nota"
+                    FontFamily="Gilroy-SemiBold"
+                    Margin="35,15,35,5"
+                    BackgroundColor="#002f6c"
+                    FontSize="15"
+                    Clicked="OnAgregarClicked"/>
+
+            <Button Text="Listar las Notas"
+                    FontFamily="Gilroy-SemiBold"
+                    Margin="35,0,35,5"
+                    BackgroundColor="#002f6c"
+                    FontSize="15"
+                    Clicked="OnListarClicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
